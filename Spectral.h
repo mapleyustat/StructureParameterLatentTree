@@ -11,9 +11,6 @@
 #ifndef __latentTree__Spectral__
 #define __latentTree__Spectral__
 #include "stdafx.h"
-extern "C" {
-#include "SVDLIBC\svdlib.h"
-}
 
 typedef struct
 {

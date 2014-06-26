@@ -31,50 +31,7 @@ clock_t TIME_start, TIME_end;
 
 int main(int argc, const char * argv[])
 {
-	/*
-	MatrixXd test(4,4);
-	test << 1,	-1,	2,	0,
-	3,	1,	-2,	0,
-	2,	-2,	1,	0,
-	0,	0,	0,	0;
-	SparseMatrix<double> test_s = test.sparseView();
-	KHID = 3;
-	pair<pair<SparseMatrix<double>, SparseMatrix<double> >, SparseMatrix<double> > result_pinv = pinv_Nystrom_sparse_component(test_s);
-	pair<pair<SparseMatrix<double>, SparseMatrix<double> >, SparseVector<double> > result_asySVD = SVD_asymNystrom_sparse(test_s);
-	pair< SparseMatrix<double>, SparseVector<double> > result_sySVD = SVD_symNystrom_sparse(test_s.transpose()*test_s.transpose());
-	cout << "result_asySVD.first.first : " << endl << (MatrixXd) result_pinv.first.first << endl;
-	cout << "result_asySVD.first.second : " << endl << (MatrixXd)result_pinv.first.second << endl;
-	cout << "result_asySVD.second: " << endl << (MatrixXd)result_pinv.second << endl;
-//	cout << "pinv: " << (MatrixXd)(result_pinv.first.first* result_pinv.second * result_pinv.first.second) << endl;
-	exit(0);
-	*/
-	/*MatrixXd test(5,4); 
-	test << 0, 3, 0, 0, 0,
-		22, 0, 0, 0, 17,
-		7, 5, 0, 1, 0,
-		0, 0, 0, 0, 0,
-		0, 0, 14, 0, 8;
-	cout << test << endl;
-			
-	MatrixXd a = MatrixXd::Random(100,4);
-	MatrixXd A = a*a.transpose();
-	SparseMatrix<double> A_s = A.sparseView();
-
-	
-	
-
-	pair< SparseMatrix<double>, SparseVector<double> > result = \
-		SVD_symNystrom_sparse(A_s);
-	cout << "U: " << (MatrixXd) result.first << endl;
-	cout << "Sigma: " << (VectorXd)result.second << endl;
-
-
-	pair<pair<Eigen::MatrixXd, Eigen::MatrixXd>, Eigen::VectorXd> result_exact = \
-		latenttree_svd(A);
-	cout << "U exact : " << (result_exact.first.first).leftCols(KHID) << endl;
-	cout << "Sigma exact : " << result_exact.second.head(KHID) << endl;
-	exit(0);*/
-	
+		
 	// synthetic input arguments:
 	// 9 10000 50 2 0 0.8 0 1 $(SolutionDir)\..\..\dataset\synthetic\samples.txt $(SolutionDir)\..\..\dataset\synthetic\result\sample_matlab.txt $(SolutionDir)\..\..\dataset\synthetic\result\DistanceMatrix.txt $(SolutionDir)\..\..\dataset\synthetic\result\category.txt $(SolutionDir)\..\..\dataset\synthetic\result\nodelist.txt $(SolutionDir)\..\..\dataset\synthetic\result\adjsparse.txt $(SolutionDir)\..\..\dataset\synthetic\result\neighborhood.txt $(SolutionDir)\..\..\dataset\synthetic\result\edgePot.txt
 	// 3 4 3 2 0  0.8 0 1 C:\Users\t-fuhuan\Documents\latenttreecode\dataset\synthetic\samples.txt C:\Users\t-fuhuan\Documents\latenttreecode\dataset\synthetic\result\sample_matlab.txt C:\Users\t-fuhuan\Documents\latenttreecode\dataset\synthetic\result\DistanceMatrix.txt C:\Users\t-fuhuan\Documents\latenttreecode\dataset\synthetic\result\category.txt C:\Users\t-fuhuan\Documents\latenttreecode\dataset\synthetic\result\nodelist.txt C:\Users\t-fuhuan\Documents\latenttreecode\dataset\synthetic\result\adjsparse.txt C:\Users\t-fuhuan\Documents\latenttreecode\dataset\synthetic\result\neighborhood.txt C:\Users\t-fuhuan\Documents\latenttreecode\dataset\synthetic\result\edgePot.txt
@@ -324,4 +281,49 @@ int main(int argc, const char * argv[])
 
  	return 0;
 }
+
+
+/*
+MatrixXd test(4,4);
+test << 1,	-1,	2,	0,
+3,	1,	-2,	0,
+2,	-2,	1,	0,
+0,	0,	0,	0;
+SparseMatrix<double> test_s = test.sparseView();
+KHID = 3;
+pair<pair<SparseMatrix<double>, SparseMatrix<double> >, SparseMatrix<double> > result_pinv = pinv_Nystrom_sparse_component(test_s);
+pair<pair<SparseMatrix<double>, SparseMatrix<double> >, SparseVector<double> > result_asySVD = SVD_asymNystrom_sparse(test_s);
+pair< SparseMatrix<double>, SparseVector<double> > result_sySVD = SVD_symNystrom_sparse(test_s.transpose()*test_s.transpose());
+cout << "result_asySVD.first.first : " << endl << (MatrixXd) result_pinv.first.first << endl;
+cout << "result_asySVD.first.second : " << endl << (MatrixXd)result_pinv.first.second << endl;
+cout << "result_asySVD.second: " << endl << (MatrixXd)result_pinv.second << endl;
+//	cout << "pinv: " << (MatrixXd)(result_pinv.first.first* result_pinv.second * result_pinv.first.second) << endl;
+exit(0);
+*/
+/*MatrixXd test(5,4);
+test << 0, 3, 0, 0, 0,
+22, 0, 0, 0, 17,
+7, 5, 0, 1, 0,
+0, 0, 0, 0, 0,
+0, 0, 14, 0, 8;
+cout << test << endl;
+
+MatrixXd a = MatrixXd::Random(100,4);
+MatrixXd A = a*a.transpose();
+SparseMatrix<double> A_s = A.sparseView();
+
+
+
+
+pair< SparseMatrix<double>, SparseVector<double> > result = \
+SVD_symNystrom_sparse(A_s);
+cout << "U: " << (MatrixXd) result.first << endl;
+cout << "Sigma: " << (VectorXd)result.second << endl;
+
+
+pair<pair<Eigen::MatrixXd, Eigen::MatrixXd>, Eigen::VectorXd> result_exact = \
+latenttree_svd(A);
+cout << "U exact : " << (result_exact.first.first).leftCols(KHID) << endl;
+cout << "Sigma exact : " << result_exact.second.head(KHID) << endl;
+exit(0);*/
 
