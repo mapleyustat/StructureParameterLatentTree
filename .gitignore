@@ -19,3 +19,14 @@
 *.exe
 *.out
 *.app
+Debug/latentTree.tlog/CL.read.1.tlog
+Debug/latentTree.tlog/CL.write.1.tlog
+Debug/latentTree.tlog/cl.command.1.tlog
+Debug/latentTree.tlog/latentTree.lastbuildstate
+Debug/latentTree.tlog/link.command.1.tlog
+Debug/latentTree.tlog/link.read.1.tlog
+Debug/latentTree.tlog/link.write.1.tlog
+Debug/vc120.idb
+ipch/latenttree-6ba8e010/latenttree-99125e4.ipch
+latentTree.opensdf
+latentTree.sdf
